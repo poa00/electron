@@ -109,7 +109,7 @@ jobs:
 
   # Build Jobs - These cascade into testing jobs
   macos-x64:
-    uses: ./.github/workflows/pipeline-electron-build-and-test.yml
+    uses: ./.github/workflows/pipeline-electron-build-and-test-and-gn-check.yml
     needs: checkout-macos
     with:
       build-runs-on: macos-14-xlarge
@@ -123,7 +123,7 @@ jobs:
     secrets: inherit
   
   macos-arm64:
-    uses: ./.github/workflows/pipeline-electron-build-and-test.yml
+    uses: ./.github/workflows/pipeline-electron-build-and-test-and-gn-check.yml
     needs: checkout-macos
     with:
       build-runs-on: macos-14-xlarge
@@ -169,7 +169,7 @@ jobs:
     secrets: inherit
   
   linux-arm64:
-    uses: ./.github/workflows/pipeline-electron-build-and-test.yml
+    uses: ./.github/workflows/pipeline-electron-build-and-test-and-gn-check.yml
     needs: checkout-linux
     with:
       build-runs-on: aks-linux-large
