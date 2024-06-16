@@ -41,6 +41,10 @@ jobs:
       BUILD_TYPE: ${{ matrix.build-type }}
       TARGET_ARCH: ${{ inputs.target-arch }}
     steps:
+    - name: Replace arm32 node20 with our node
+      if: ${{ inputs.target-arch == 'arm' }}
+      run: |
+        cp $(which node) /__e/node20/bin/node
     - name: Checkout Electron
       uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29
       with:
